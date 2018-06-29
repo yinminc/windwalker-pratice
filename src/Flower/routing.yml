@@ -1,0 +1,8 @@
+home:
+    pattern: /
+    controller: Sakura
+
+sakura:
+    pattern: /sakura(/id)
+    controller: Sakura
+

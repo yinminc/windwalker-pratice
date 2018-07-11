@@ -6,3 +6,6 @@ sakura:
     pattern: /sakura(/id)
     controller: Sakura
 
+sakuras:
+    pattern: /sakuras
+    controller: Sakuras

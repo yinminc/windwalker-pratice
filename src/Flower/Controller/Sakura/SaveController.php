@@ -34,19 +34,6 @@ class SaveController extends AbstractController
         $title = $this->input->getString('title');
         $desc = $this->input->getString('desc');
 
-        // 判斷是否有ＩＤ，如果有的ＩＤ的話就會 update 一筆資料，如果沒有ＩＤ的話，就會建立一筆新的資料
-//        if ($id) {
-//            $data = $mapper->updateOne([
-//                'id' => $id,
-//                'title' => $title,
-//                'desc' => $desc
-//            ]);
-//        } else {
-//            $data = $mapper->createOne([
-//                'title' => $title,
-//                'desc' => $desc
-//            ]);
-//        }
 
         /** @var SakuraRepository $repo */
         $repo = $this->getRepository();
@@ -68,14 +55,5 @@ class SaveController extends AbstractController
         );
 
         return true;
-
-//        show($title, $desc);
-//        exit(' @Checkpoint');
-
-//        $method = $this->input->getMethod();
-//
-//        show($method);
-//
-//        show($title, $this);
     }
 }

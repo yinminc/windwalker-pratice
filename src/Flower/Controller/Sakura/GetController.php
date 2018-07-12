@@ -43,9 +43,12 @@ class GetController extends AbstractController
 
         /** @var LocationsRepository $locationsRepo */
         $locationsRepo = $this->getRepository('locations');
+
         $view          = $this->getView('sakura');
+
         // 把拿到的資料陣列丟到 view 裡面的的陣列，讓 view 可以拿出來用
         $view['sakura'] = $sakura;
+
         $view['locations'] = $locationsRepo->getLocations();
 
         $view->setLayout('form');

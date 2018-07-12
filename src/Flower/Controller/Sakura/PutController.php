@@ -30,6 +30,5 @@ class PutController extends AbstractController
 
         show($method, 'But this is Put');
 
-//        show($title, $this);
     }
 }

@@ -24,6 +24,7 @@ class MainSeeder extends AbstractSeeder
     {
         $this->execute(CoverSeeder::class);
         $this->execute(LocationSeeder::class);
+        $this->execute(SakuraSeeder::class);
     }
 
     /**
@@ -34,5 +35,7 @@ class MainSeeder extends AbstractSeeder
     public function doClear()
     {
         $this->clear(CoverSeeder::class);
+        $this->clear(LocationSeeder::class);
+        $this->clear(SakuraSeeder::class);
     }
 }

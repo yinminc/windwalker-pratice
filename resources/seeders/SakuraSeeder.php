@@ -9,11 +9,11 @@
 use Windwalker\DataMapper\DataMapper;
 
 /**
- * The LocationSeeder class.
+ * The SakuraSeeder class.
  *
  * @since  __DEPLOY_VERSION__
  */
-class LocationSeeder extends \Windwalker\Core\Seeder\AbstractSeeder
+class SakuraSeeder extends \Windwalker\Core\Seeder\AbstractSeeder
 {
     /**
      * doExecute
@@ -24,20 +24,19 @@ class LocationSeeder extends \Windwalker\Core\Seeder\AbstractSeeder
     public function doExecute()
     {
         $faker = \Faker\Factory::create('zh_TW');
-        $mapper = new DataMapper('locations');
-        $date = new DateTime('now');
 
-        foreach (range(1, 15) as $i) {
-            $mapper->createOne([
-                'title' => $faker->country,
-                'description' => $faker->sentence(3),
-                'created' => $date->format($this->getDateFormat())
+        $locations = (new DataMapper('locations'))->findAll()->dump();
+        $sakuraMapper = new DataMapper('sakuras');
+
+        foreach (range(1, 150) as $i){
+            $sakuraMapper->createOne([
+                'title' => $faker->word,
+                'locations_id' => $faker->randomElement($locations)->id,
+                'desc' => $faker->paragraph
             ]);
 
-            // 計算載入資料的筆數
             $this->outCounting();
         }
-
     }
 
     /**
@@ -47,6 +46,6 @@ class LocationSeeder extends \Windwalker\Core\Seeder\AbstractSeeder
      */
     public function doClear()
     {
-        $this->truncate('locations');
+        $this->truncate('sakuras');
     }
 }

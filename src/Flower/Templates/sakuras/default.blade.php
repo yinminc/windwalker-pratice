@@ -15,7 +15,7 @@
             </div>
         </div>
 
-        <div class="search-bar">
+        <div class="search-bar mb-4">
             <form action="{{ $router->to('sakuras') }}">
                 <input type="text" name="q" value="{{ $q ?? '' }}" placeholder="Search"
                     class="form-horizontal w-25"/>

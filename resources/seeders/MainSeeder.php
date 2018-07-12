@@ -23,6 +23,7 @@ class MainSeeder extends AbstractSeeder
     public function doExecute()
     {
         $this->execute(CoverSeeder::class);
+        $this->execute(LocationSeeder::class);
     }
 
     /**

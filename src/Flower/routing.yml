@@ -9,3 +9,7 @@ sakura:
 sakuras:
     pattern: /sakuras
     controller: Sakuras
+
+locations:
+    pattern: /locations
+    controller: Locations

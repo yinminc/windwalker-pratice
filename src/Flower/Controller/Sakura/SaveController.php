@@ -30,6 +30,7 @@ class SaveController extends AbstractController
     protected function doExecute()
     {
         $id = $this->input->getInt('id');
+        $locationid = $this->input->getInt('location_id');
         $title = $this->input->getString('title');
         $desc = $this->input->getString('desc');
 
@@ -52,6 +53,7 @@ class SaveController extends AbstractController
 
         $data = $repo->save(new Data([
             'id' => $id,
+            'location' => $locationid,
             'title' => $title,
             'desc' => $desc
         ]));

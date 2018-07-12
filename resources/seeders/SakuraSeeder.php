@@ -25,6 +25,7 @@ class SakuraSeeder extends \Windwalker\Core\Seeder\AbstractSeeder
     {
         $faker = \Faker\Factory::create('zh_TW');
 
+        // find all 出來是 array 所以要先 dump
         $locations = (new DataMapper('locations'))->findAll()->dump();
         $sakuraMapper = new DataMapper('sakuras');
 

@@ -8,6 +8,7 @@
 
 namespace Flower\Controller\Sakura;
 
+use Flower\Repository\LocationsRepository;
 use Flower\Repository\SakuraRepository;
 use Flower\View\ContentTypeInterface;
 use Windwalker\Core\Controller\AbstractController;
@@ -115,41 +116,22 @@ class GetController extends AbstractController
         /** @var SakuraRepository $repo */
         $repo = $this->getRepository('Sakura');
 
-        $sakura = $repo->getSakura($id);
-        $view = $this->getView('Sakura');
+        $sakura = $repo->getSakuraById($id);
+
+        /** @var LocationsRepository $locationsRepo */
+        $locationsRepo = $this->getRepository('locations');
+        $view          = $this->getView('sakura');
         // 把拿到的資料陣列丟到 view 裡面的的陣列，讓 view 可以拿出來用
         $view['sakura'] = $sakura;
+        $view['locations'] = $locationsRepo->getLocations();
 
 
         if ($view instanceof LayoutRenderableInterface) {
             $view->setLayout('form');
         }
 
-//        if ($view instanceof ContentTypeInterface) {
-//            $this->response = $this->response
-//                ->withHeader('Content-Type', $view->getContentType());
-//        }
-
-//        if ($format === 'json') {
-//            DebuggerHelper::disableConsole();
-//
-//            header('Content-Type: text/json');
-//
-//
-//            $this->response = $this->response
-//                ->withHeader('Content-Type: ', 'application/json');
-//
-//            $this->response = new JsonResponse();
-//        }
 
         return $view->render();
 
-//        return $this->renderView($view,$layout,'edge', [
-//            'location' => 'Japan',
-//            'layout' => $layout,
-//            'color' => 'danger',
-//            'foo' => $foo,
-//            'id' => $this->input->get('id')
-//        ]);
     }
 }

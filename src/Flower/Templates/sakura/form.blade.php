@@ -19,6 +19,20 @@
         </div>
 
         <div class="form-group">
+            <select name="location_id" id="input-locations-id">
+            @foreach($locations as $location)
+                <option value="{{ $location->id }}"
+                    @if ($sakura->location_id == $location->id)
+                        selected = "selected"
+                    @endif
+                >
+                    {{ $location->title }}
+                </option>
+            @endforeach
+            </select>
+        </div>
+
+        <div class="form-group">
             <label for="input-desc">Description</label>
             <textarea id="input-desc" class="form-control" rows="7" name="desc"
                 placeholder="請輸入描述"><?php echo $this->escape($sakura->desc) ?></textarea>

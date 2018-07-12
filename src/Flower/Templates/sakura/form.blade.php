@@ -8,9 +8,6 @@
     <h2>Sakura Edit</h2>
 
     <form action="{{ $router->route('sakura') }}" method="post">
-        {{--<input type="text" name="layout" value="{{ $layout }}" />--}}
-        {{--<input type="text" name="title" value="" />--}}
-        {{--<input type="text" name="_method" value="PUT" />--}}
 
         <div class="form-group">
             <label for="input-title">Title</label>
